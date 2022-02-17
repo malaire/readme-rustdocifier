@@ -109,6 +109,10 @@ Following conversions are done:
     - `crate::MODULES::FUNCTION`
 - `https://docs.rs/PACKAGE/VERSION/CRATE/MODULES/fn.FUNCTION.html#fragment`
     - `crate::MODULES::FUNCTION#fragment`
+- `https://docs.rs/PACKAGE/VERSION/CRATE/MODULES/macro.MACRO.html`
+    - `crate::MODULES::MACRO`
+- `https://docs.rs/PACKAGE/VERSION/CRATE/MODULES/macro.MACRO.html#fragment`
+    - `crate::MODULES::MACRO#fragment`
 - `https://docs.rs/PACKAGE/VERSION/CRATE/MODULES/struct.STRUCT.html`
     - `crate::MODULES::STRUCT`
 - `https://docs.rs/PACKAGE/VERSION/CRATE/MODULES/struct.STRUCT.html#method.METHOD`

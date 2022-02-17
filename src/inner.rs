@@ -352,6 +352,8 @@ fn convert_url(
     // enum.ENUM.html#fragment
     // fn.FUNCTION.html
     // fn.FUNCTION.html#fragment
+    // macro.FUNCTION.html
+    // macro.FUNCTION.html#fragment
     // struct.STRUCT.html
     // struct.STRUCT.html#method.METHOD
     // struct.STRUCT.html#fragment
@@ -362,6 +364,7 @@ fn convert_url(
     const DATA: &[(&str, &[&str])] = &[
         ("enum.", &["method.", "variant."]),
         ("fn.", &[]),
+        ("macro.", &[]),
         ("struct.", &["method."]),
         ("trait.", &["tymethod."]),
     ];
@@ -835,6 +838,41 @@ mod tests {
     fn module_function_fragment() {
         test(
             "[x]: https://docs.rs/foo/*/foo/a/b/fn.bar.html#fragment",
+            "[x]: crate::a::b::bar#fragment",
+        );
+    }
+
+    // ============================================================
+    // LINKS - MACRO
+
+    #[test]
+    fn root_macro() {
+        test(
+            "[x]: https://docs.rs/foo/*/foo/macro.bar.html",
+            "[x]: crate::bar",
+        );
+    }
+
+    #[test]
+    fn root_macro_fragment() {
+        test(
+            "[x]: https://docs.rs/foo/*/foo/macro.bar.html#fragment",
+            "[x]: crate::bar#fragment",
+        );
+    }
+
+    #[test]
+    fn module_macro() {
+        test(
+            "[x]: https://docs.rs/foo/*/foo/a/b/macro.bar.html",
+            "[x]: crate::a::b::bar",
+        );
+    }
+
+    #[test]
+    fn module_macro_fragment() {
+        test(
+            "[x]: https://docs.rs/foo/*/foo/a/b/macro.bar.html#fragment",
             "[x]: crate::a::b::bar#fragment",
         );
     }
